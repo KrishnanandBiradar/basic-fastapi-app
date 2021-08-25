@@ -1,0 +1,32 @@
+1. Create Virtual Env
+2. The first step is to install FastAPI and Uvicorn using pip:
+   >>$ python -m pip install fastapi uvicorn[standard]
+   FastAPI is the framework you’ll use to build your API, 
+   and Uvicorn is the server that will use the API you build to serve requests.
+
+3. run uvicorn
+This code defines your application, but it won’t run on itself 
+if you call it with python directly. To run it, you need a server program.
+In the steps above, you already installed Uvicorn. That will be your server.
+   >>$ uvicorn main:app --reload
+   The highlighted line in the output shows the URL where your app is being served in your local machine.
+   Since you used --reload for development, when you update your application code, 
+   the server will reload automatically.
+
+4. That JSON message is the same dictionary that you returned from the function in your application. 
+   FastAPI takes care of serializing the Python dict into a JSON object and setting the appropriate 
+   Content-Type.
+
+5. Path refers to the last part of the URL starting from the first forward slash character (/).
+   So, in a URL like https://example.com/items/foo, the path would be /items/foo.
+   A path is also commonly called an endpoint or a route
+
+6. Documentation:
+   >>http://127.0.0.1:8000/docs
+   >>http://127.0.0.1:8000/redoc
+
+7. A request body is data sent by the client to your API. A response body is the data your API 
+   sends to the client. Your API almost always has to send a response body. 
+   But clients don’t necessarily need to send request bodies all the time. To declare a request body,
+   you use 'pydantic models', with all their power and benefits. You’ll learn more about them below.
+   
